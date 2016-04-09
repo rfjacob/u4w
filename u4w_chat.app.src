@@ -1,0 +1,19 @@
+{application, u4w_chat, [
+        {description, "Up4What Chat Server."},
+	  {vsn, "%VSN%"},
+	  {modules, [%MODULES%]},
+        {applications, [ssl]},
+        {registered, [u4w_chat_archive,u4w_chat_listener,u4w_chat_log,u4w_chat_sup,u4w_chat_app]},
+        {mod, {u4w_chat_app, []}},
+        {env,
+                [
+                        {port, 8080},
+                        {dump_freq_hours, 24},
+                        {log_dir, "./log/"},
+                        {log_wrap_kb, 1024},
+                        {log_file_prefix, "echat_log"},
+                        {certfile, "./priv/cert.pem"},
+                        {keyfile, "./priv/key.pem"},
+                        {password, "12345678"}
+                ]}
+]}.
